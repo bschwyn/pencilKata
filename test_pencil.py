@@ -10,6 +10,15 @@ def test_pencil_writes_simple_string():
     text = newPencil.write("simple string", paper)
     assert text == "simple string"
 
+def test_pencil_only_writes_letters_when_enough_durability():
+    length = 10
+    durability = 4
+    eraser = 10
+    paper = ""
+    newPencil = Pencil(length, durability, eraser)
+    text = newPencil.write("texT", paper)
+    assert text == "tex "
+
 def test_text_appended_to_existing_text():
     length = 10
     durability= 1000

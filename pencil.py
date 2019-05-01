@@ -23,3 +23,4 @@ class Pencil:
             self._decrease_durability(next_char)
             paper.append(next_char) if self.durability > 0 else paper.append(' ')
         return ''.join(paper)
+
