@@ -1,4 +1,4 @@
-import pytest
+from pencil import *
 
 def test_pencil_writes_simple_string():
     length = 10
@@ -62,4 +62,4 @@ def test_dullness_after_sharpening_length_zero_pencil():
     text = newPencil.write("Simple String", paper)
     newPencil.sharpen()
     text = newPencil.write("simple", text)
-    assert text = "Simple Str          "
+    assert text == "Simple Str          "
