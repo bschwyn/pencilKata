@@ -21,7 +21,7 @@ class Pencil:
         while char_list:
             next_char = char_list.pop(0)
             self._decrease_durability(next_char)
-            paper.append(next_char) if self.durability > 0 else paper.append(' ')
+            paper.append(next_char) if self.durability >= 0 else paper.append(' ')
         return ''.join(paper)
 
 p = Pencil(10, 10, 10)
