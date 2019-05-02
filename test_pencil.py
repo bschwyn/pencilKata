@@ -80,3 +80,46 @@ def test_dullness_after_sharpening_length_zero_pencil():
     newPencil.sharpen()
     text = newPencil.write("abc", text)
     assert text == "Simple St       "
+
+def test_erase_last_instance_of_text():
+    newPencil = Pencil(10,10,1000)
+    paper = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
+    text = newPencil.erase("chuck", paper)
+    text = newPencil.erase("chuck", text)
+    assert text == "How much wood would a woodchuck chuck if a wood      could       wood"
+
+def test_eraser_degredation():
+    newPencil = Pencil(10,10,3)
+    paper = "Buffalo BilL"
+    text = newPencil.erase("Bill")
+    assert text == "Buffalo B   "
+
+def test_eraser_text_mismatch():
+    newPencil = Pencil(10,10,10)
+    text = "When a pencil is created"
+    erased_text = newPencil.erase("Pen", text)
+    assert erased_text == "When a pencil is created"
+
+def test_editing():
+    newPencil = Pencil(10,10,10)
+    text = "An       a day keeps the doctor away"
+    edited_text = newPencil.edit("onion", text)
+    assert edited_text == "An onion a day keeps the doctor away"
+
+def test_edits_use_left_white_spaces_first():
+    newPencil = Pencil(10,10,10)
+    text = "An      a day    keeps the doctor away"
+    edited_text = newPencil.edit("onion", text)
+    assert edited_text == "An onion a day    keeps the doctor away"
+
+def test_edit_collisions():
+    newPencil = Pencil(10,100,100)
+    text = "An      a day keeps the doctor away"
+    edited_text = newPencil.edit("artichoke", text)
+    assert edited_text == "An artich@k@ay keeps the doctor away"
+
+def test_edit_collisions_of_same_characters():
+    newPencil=Pencil(10,10,10)
+    text = "hello     universe"
+    edited_text = newPencil.edit("Neptune", text)
+    assert edited_text == "hello Neptun@verse"

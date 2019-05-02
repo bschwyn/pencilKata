@@ -29,3 +29,4 @@ class Pencil:
         if self.length > 0:
             self.current_durability = self.original_durability
             self.length -=1
+
