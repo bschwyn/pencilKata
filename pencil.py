@@ -2,16 +2,17 @@ class Pencil:
 
     def __init__(self, length, durability, eraser):
         self.length = length
-        self.durability = durability
+        self.original_durability = durability
+        self.current_durability = durability
         self.eraser = eraser
 
     def _decrease_durability(self, char):
         if char.isupper():
-            self.durability -=2
+            self.current_durability -=2
         elif char.islower():
-            self.durability -=1
+            self.current_durability -=1
         else:
-            self.durability -=0
+            self.current_durability -=0
 
 
     def write(self, text, paper):
@@ -21,9 +22,10 @@ class Pencil:
         while char_list:
             next_char = char_list.pop(0)
             self._decrease_durability(next_char)
-            paper.append(next_char) if self.durability >= 0 else paper.append(' ')
+            paper.append(next_char) if self.current_durability >= 0 else paper.append(' ')
         return ''.join(paper)
 
-p = Pencil(10, 10, 10)
-text = p.write("Simple String", "")
-print(text + "x")
+    def sharpen(self):
+        if self.length > 0:
+            self.current_durability = self.original_durability
+            self.length -=1

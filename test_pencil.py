@@ -44,8 +44,8 @@ def test_durability_reduction():
     eraser = 1000
     paper = ""
     newPencil = Pencil(length, durability, eraser)
-    text = newPencil.write("Simple String", paper)
-    assert newPencil.durability == 86
+    newPencil.write("Simple String", paper)
+    assert newPencil.current_durability == 86
 
 def test_text_after_durability_is_zero_and_pencil_is_dull():
     length = 10
@@ -64,7 +64,7 @@ def test_durability_regains_after_sharpening():
     newPencil = Pencil(length, durability, eraser)
     text = newPencil.write("Simple String", paper)
     newPencil.sharpen()
-    text = newPencil.write("Simple String")
+    text = newPencil.write("Simple String", text)
     assert text == "Simple St    Simple St    "
 
 def test_dullness_after_sharpening_length_zero_pencil():
