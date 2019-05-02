@@ -78,5 +78,5 @@ def test_dullness_after_sharpening_length_zero_pencil():
     newPencil.sharpen()
     text = newPencil.write("Simple String", paper)
     newPencil.sharpen()
-    text = newPencil.write("simple", text)
-    assert text == "Simple Str          "
+    text = newPencil.write("abc", text)
+    assert text == "Simple St       "
