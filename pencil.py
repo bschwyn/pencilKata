@@ -24,3 +24,6 @@ class Pencil:
             paper.append(next_char) if self.durability > 0 else paper.append(' ')
         return ''.join(paper)
 
+p = Pencil(10, 10, 10)
+text = p.write("Simple String", "")
+print(text + "x")

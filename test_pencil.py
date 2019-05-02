@@ -10,14 +10,22 @@ def test_pencil_writes_simple_string():
     text = newPencil.write("simple string", paper)
     assert text == "simple string"
 
-def test_pencil_only_writes_letters_when_enough_durability():
-    length = 10
-    durability = 4
-    eraser = 10
-    paper = ""
-    newPencil = Pencil(length, durability, eraser)
-    text = newPencil.write("texT", paper)
-    assert text == "tex "
+
+def test_pencil_writes_lower_case_letters_when_durability_goes_to_0():
+    newPencil = Pencil(1,1,1)
+    text = newPencil.write("t", "")
+    assert text == "t"
+
+def test_pencil_writes_capital_letters_when_durability_goes_to_0():
+    newPencil = Pencil(2,2,2)
+    text = newPencil.write("T", "")
+    assert text == "T"
+
+def test_pencil_only_writes_capital_letters_when_enough_durability():
+    newPencil = Pencil(1, 1, 1)
+    text = newPencil.write("T", "")
+    assert text == " "
+
 
 def test_text_appended_to_existing_text():
     length = 10
