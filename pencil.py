@@ -16,6 +16,7 @@ class Pencil:
 
 
     def write(self, text, paper):
+        # adds text to end of paper while decreasing pencil durability
 
         char_list = list(text)
         paper = list(paper)
@@ -26,12 +27,16 @@ class Pencil:
         return ''.join(paper)
 
     def sharpen(self):
+        # restores original durability
+
         if self.length > 0:
             self.current_durability = self.original_durability
             self.length -=1
 
 
     def erase(self, tobeerased, paper):
+        # erases characters from back to fron in the text if the word is found, degrades eraser value
+
         index = paper.rfind(tobeerased)
         paper_list = list(paper)
         if index > -1:
@@ -42,8 +47,18 @@ class Pencil:
 
         return ''.join(paper_list)
 
-
-
-
     def edit(self, writein, paper):
-        pass
+        # inserts a word in the first available white space
+
+        #find whitespace larger than standard spaces.
+        index = paper.find("  ")
+        paper_list = list(paper)
+        if index > -1:
+            j = 0
+            for i in range(index +1, index + 1 + len(writein)):
+                if paper_list[i] == ' ':
+                    paper_list[i] = writein[j]
+                else:
+                    paper_list[i] = '@'
+                j +=1
+        return ''.join(paper_list)
