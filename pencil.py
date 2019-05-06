@@ -39,17 +39,11 @@ class Pencil:
                 if self.eraser >0 and paper_list[index + i] != ' ':
                     paper_list[index + i] = ' '
                     self.eraser -=1
-        return paper
+
+        return ''.join(paper_list)
 
 
 
 
     def edit(self, writein, paper):
         pass
-
-def test_erase_last_instance_of_text():
-    newPencil = Pencil(10,10,1000)
-    paper = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
-    text = newPencil.erase("chuck", paper)
-    text = newPencil.erase("chuck", text)
-    print(text)
