@@ -114,7 +114,7 @@ def test_edits_use_left_white_spaces_first():
 
 def test_edit_collisions():
     newPencil = Pencil(10,100,100)
-    text = "An      a day keeps the doctor away"
+    text = "An       a day keeps the doctor away"
     edited_text = newPencil.edit("artichoke", text)
     assert edited_text == "An artich@k@ay keeps the doctor away"
 
