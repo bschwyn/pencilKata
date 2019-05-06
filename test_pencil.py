@@ -91,7 +91,7 @@ def test_erase_last_instance_of_text():
 def test_eraser_degredation():
     newPencil = Pencil(10,10,3)
     paper = "Buffalo BilL"
-    text = newPencil.erase("Bill")
+    text = newPencil.erase("Bill", paper)
     assert text == "Buffalo B   "
 
 def test_eraser_text_mismatch():
