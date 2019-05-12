@@ -35,7 +35,7 @@ class Pencil:
 
 
     def erase(self, tobeerased, paper):
-        # erases characters from back to fron in the text if the word is found, degrades eraser value
+        # erases characters from back to front in the text if the word is found, degrades eraser value
 
         index = paper.rfind(tobeerased)
         paper_list = list(paper)
