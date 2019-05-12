@@ -6,6 +6,8 @@ The pencil object has several major functions that the user can use it for. It c
 
 The text functions take two variables, one which is the change to be made (text to be added or deleted), and then the paper to which the change is occuring on. The paper may already contain text.
 
+The code was developed in a test-driven development style, writing tests based off of the specification here: https://github.com/PillarTechnology/kata-pencil-durability#point-degradation and then writing more code until the tests pass. You can see this in my git commit history here: https://github.com/bschwyn/pencilKata/commits/master
+
 ### Download and installation
 
 To download the pencil kata use:
