@@ -25,7 +25,7 @@ The tests can then be run by typing
 ### Future work
 
 As the specification becomes more complete, here are some changes I could imagine being added to the pencilKata code.
-- more strictly defining the results of edit collisions
+- more strictly defining the results of edit collisions (i.e. do collisions of the same character result in an @ sign or the same character?)
 - separation of the 'paper' into it's own separate class, with different characteristics. Perhaps different paper degrades pencils differently or has different effects on the text. Rather than string concatenation, paper objects would probably need an 'add text' method that pencil functions would access. Pencil methods would take a paper object, modify it, and then return the modified paper object.
 - You could a Writing-Instrument interface which is implemented by different objects such as Pen, Pencil.
 
